@@ -11,6 +11,10 @@ on:
       - '**/*.tf'
       - '.github/workflows/release.yml'
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   release:
     name: Release
@@ -33,4 +37,4 @@ jobs:
             @semantic-release/git@10.0.0
             conventional-changelog-conventionalcommits@4.6.3
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
